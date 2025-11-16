@@ -1,0 +1,7 @@
+room_number,type_name,price,status
+201,Single,500000,available
+202,Double,800000,available
+203,Suite,1500000,maintenance
+204,Single,500000,booked
+205,Double,800000,available
+206,Suite,1500000,available

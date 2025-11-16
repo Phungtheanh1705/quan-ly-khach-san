@@ -1,0 +1,60 @@
+/**
+ * File: booking_create.css
+ * Chứa các quy tắc CSS riêng để làm đẹp form admin/bookings/create.php
+ */
+
+/* 1. Tiêu đề các Section trong Form (Ví dụ: Thông tin khách hàng, Thông tin phòng) */
+.form-section-header {
+    padding: 10px 15px;
+    /* Kéo dài header ra sát mép card-body */
+    margin: -15px -15px 15px -15px; 
+    border-radius: 0.25rem 0.25rem 0 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Màu sắc cho các Section Header */
+.header-primary {
+    background-color: #007bff;
+    color: white;
+}
+.header-success {
+    background-color: #28a745;
+    color: white;
+}
+.header-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+/* 2. Cải thiện nhãn và input */
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+.form-select, .form-control {
+    font-size: 0.9rem;
+}
+
+/* 3. Khung hiển thị tổng tiền */
+.total-price-box {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 6px;
+    /* Tạo điểm nhấn bằng border bên trái */
+    border-left: 5px solid #dc3545; 
+}
+.total-price-box h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #dc3545;
+    font-weight: 700;
+}
+
+/* 4. Thẻ bắt buộc */
+.required::after {
+    content: " *";
+    color: red;
+}

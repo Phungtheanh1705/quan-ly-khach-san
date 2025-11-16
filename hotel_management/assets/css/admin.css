@@ -1,0 +1,264 @@
+/* --- TỐI ƯU HÓA CHUNG --- */
+body {
+    background-color: #f4f7f6;
+    min-height: 100vh;
+}
+
+/* --- 1. CẤU TRÚC CHÍNH (Desktop First) --- */
+.main-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+}
+.page-content-wrapper {
+    flex-grow: 1;
+    background-color: #fff;
+}
+.content {
+    padding: 20px 25px;
+}
+
+/* --- FIX NÚT ĐĂNG XUẤT VÀ THANH CUỘN SIDEBAR --- */
+#sidebar .components {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+#sidebar .bottom-logout {
+    margin-top: auto;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* --- Styling Sidebar chung --- */
+#sidebar .sidebar-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sidebar .components li.active a {
+    background: #007bff;
+    color: #fff !important;
+    border-radius: 5px;
+}
+/* Hiệu ứng di chuột cho menu */
+#sidebar .components a {
+    padding: 10px 15px !important;
+    font-size: 0.95rem;
+    transition: all 0.2s; 
+}
+#sidebar .components a:hover {
+    background: #007bff;
+    opacity: 0.9;
+    color: #fff !important;
+    border-radius: 5px;
+    transform: translateX(3px); 
+}
+
+/* --- 2. GIAO DIỆN DASHBOARD CARDS (THỐNG KÊ) --- */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+}
+.card .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card .card-body i { 
+    font-size: 2.5em !important; 
+    margin-bottom: 8px;
+    display: block;
+    opacity: 0.8;
+}
+.card .card-body h5 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+.card .card-body h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+}
+.bg-warning h5, .bg-warning h3 {
+    color: #333 !important; 
+}
+
+/* --- 3. FORM LỌC (TỐI ƯU) --- */
+.filter-form-wrapper {
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+.row.g-3.align-items-end { /* Đã đổi g-2 thành g-3 theo PHP code */
+    flex-wrap: wrap; 
+}
+.row.g-3.align-items-end .col-auto,
+.row.g-3.align-items-end .col-md-auto {
+    margin-bottom: 10px; 
+}
+.row.g-3.align-items-end label {
+    font-size: 0.75rem; 
+    font-weight: 600;
+    color: #6c757d;
+    display: block;
+    margin-bottom: 3px;
+}
+.row.g-3.align-items-end input,
+.row.g-3.align-items-end select,
+.row.g-3.align-items-end button {
+    height: 35px; 
+    font-size: 0.85rem;
+    padding: 0.375rem 0.75rem;
+}
+
+/* --- 4. BẢNG DỮ LIỆU --- */
+.table-responsive {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow-x: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.table {
+    margin-bottom: 0;
+}
+.table th, .table td {
+    vertical-align: middle !important;
+    font-size: 0.9rem;
+    /* Đây là padding gây ra việc nút bị to */
+    padding: 10px 10px; 
+}
+/* Badge trạng thái */
+.badge-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 0.75rem;
+}
+.badge-status.pending 	 { background:#ffc107; color: #333; }
+.badge-status.confirmed  { background:#28a745; }
+.badge-status.checked_in { background:#17a2b8; }
+.badge-status.checked_out{ background:#6c757d; }
+.badge-status.cancelled 	 { background:#dc3545; }
+
+/* --- 5. HIỆU ỨNG CHUYỂN CẢNH KHI LOAD TRANG (FADE-IN) --- */
+/* Thiết lập ban đầu (initial-hidden) và Transition */
+.content-area-main {
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+.content-area-main.initial-hidden {
+    opacity: 0;
+    transform: translateY(10px); 
+}
+.content-area-main.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styling cho tiêu đề Dashboard */
+.content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+.content h1:hover {
+    color: #007bff; 
+    transform: translateX(5px);
+}
+
+/* ================================================= */
+/* RESPONSIVE MEDIA QUERIES 			 			*/
+/* ================================================= */
+
+/* THÊM LỚP PHỦ NỀN TỐI (BACKDROP) CHO MOBILE/TABLET */
+body.sidebar-open {
+    overflow: hidden; 
+}
+body.sidebar-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1040; 
+    display: block;
+}
+
+/* 1. TABLET/NHỎ (<= 992px - Bootstrap 'lg') */
+@media (max-width: 992px) {
+    /* SIDEBAR FIX: Chuyển Sidebar thành Overlay và ẩn đi */
+    #sidebar {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        margin-left: -250px; 
+        z-index: 1050; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: flex !important; 
+    }
+    #sidebar.show {
+        margin-left: 0;
+    }
+    #sidebar:not(.show) {
+        display: none !important;
+    }
+    .page-content-wrapper {
+        width: 100%;
+    }
+
+    /* CARD THỐNG KÊ: Xếp thành 2 cột trên tablet (50% width) */
+    .row.g-4.mb-5 .col-sm-6.col-md-3 {
+        width: 50%; 
+    }
+
+    /* Ẩn backdrop khi sidebar đóng */
+    body:not(.sidebar-open)::after {
+        display: none;
+    }
+}
+
+/* 2. ĐIỆN THOẠI (<= 576px - Bootstrap 'sm') */
+@media (max-width: 576px) {
+    .content {
+        padding: 15px 10px; 
+    }
+    /* CARD THỐNG KÊ: Xếp thành 1 cột trên mobile */
+    .row.g-4.mb-5 .col-sm-6.col-md-3 {
+        width: 100%; 
+    }
+    /* FORM LỌC: Đảm bảo các input chiếm toàn bộ chiều rộng (100%) */
+    .filter-form-wrapper form .col-12,
+    .filter-form-wrapper form .col-md-auto {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
