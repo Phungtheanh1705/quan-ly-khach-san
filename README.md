@@ -282,4 +282,4 @@ CREATE TABLE IF NOT EXISTS settings (
 
 
 ### Bước 5: Chạy dự án
-1. Mở trình duyệt và truy cập đường dẫn: `http://localhost/hotel_management/admin/index.php`
+1. Mở trình duyệt và truy cập đường dẫn: 'http://localhost/hotel_management/admin/index.php'
